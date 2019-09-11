@@ -8,7 +8,6 @@ const bodyParser = require('body-parser');
 const indexRouter = require('./routes/index');
 const postsRouter = require('./routes/posts');
 const reviewsRouter = require('./routes/reviews');
-const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -26,7 +25,6 @@ app.use('/', indexRouter);
 app.use('/posts', postsRouter);
 //so we have access to the id that the review belongs to
 app.use('/posts/:id/reviews', reviewsRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

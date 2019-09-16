@@ -1,6 +1,6 @@
-# Project Title
+# AutoFinder
 
-One Paragraph of project description goes here
+AutoFinder is a web application that allows users to buy, sell, rent, and view cars. 
 
 ## Getting Started
 

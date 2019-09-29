@@ -7,7 +7,8 @@ const {
     postCreate,
     postShow,
     postEdit,
-    postUpdate
+    postUpdate,
+    postDestroy
 }
     = require('../controllers/post');
 
@@ -30,9 +31,7 @@ router.get('/:id/edit', asyncErrorHandler(postEdit));
 router.put('/:id', asyncErrorHandler(postUpdate));
 
 //DELETE posts destroy /posts/:id
-router.get('/:id', (req, res, next) => {
-    res.send('DELETE /posts/:id'); 8
-});
+router.delete('/:id', asyncErrorHandler(postDestroy));
 
 module.exports = router;
 

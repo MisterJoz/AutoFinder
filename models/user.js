@@ -5,14 +5,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
     email: String,
     //passport automatically puts username and password (hash and salt) into the Schema
-    image: String, //profile pic
-    posts: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Post'
-
-        }
-    ]
+    image: String //profile pic
 });
 
 UserSchema.plugin(passportLocalMongoose);

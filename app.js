@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 const createError = require('http-errors');
 const express = require('express');
 const engine = require('ejs-mate');
@@ -12,6 +11,7 @@ const User = require('./models/user');
 const session = require('express-session');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+require('dotenv').config();
 
 //require routes
 const indexRouter = require('./routes/index');
@@ -19,6 +19,8 @@ const postsRouter = require('./routes/posts');
 const reviewsRouter = require('./routes/reviews');
 
 const app = express();
+
+
 
 //connect to database
 mongoose.connect('mongodb://localhost:27017/auto-finder-mapbox', { useNewUrlParser: true });
@@ -57,6 +59,12 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+//title middleware
+app.use(function (req, res, next) {
+  res.locals.title = 'Auto Finder';
+  next();
+});
+
 //MOUNT ROUTES
 app.use('/', indexRouter);
 app.use('/posts', postsRouter);
@@ -78,5 +86,7 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

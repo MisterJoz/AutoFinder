@@ -1,5 +1,4 @@
-<% layout('layouts/post-show-layout.ejs') -%>
-
+<% layout('layouts/post-show-layout') -%>
 
 <h1><%= post.title %></h1>
 <div>Price: <%= post.price %></div>
@@ -10,7 +9,7 @@
   <img src="<%= image.url %>" alt="Surf board image" width="200px">
   <% }); %>
 </div>
-<div id='map'></div>
+<div id='map'> </div>
 <div>
   <a href="/posts/<%= post.id %>/edit">
     <button>Edit</button>
